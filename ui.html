@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=0,
+                       initial-scale=1.0,
+                       minimum-scale=1.0,
+                       maximum-scale=1.0" />
+        <style>
+
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+
+                background-image: url("./background.svg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                cursor: url("./cursor.svg"), auto;
+            }
+
+            canvas {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            #play {
+                width: 200px;
+                height: 200px;
+                position: fixed;
+                top: calc(50% - 100px);
+                left: calc(28.125% - 100px);
+            }
+
+            #calibration {
+                width: 440px;
+                height: 85px;
+                position: fixed;
+                top: calc(50% - 100px);
+                left: calc(28.125% - 100px + 200px);
+            }
+
+            #settings {
+                width: 397px;
+                height: 85px;
+                position: fixed;
+                bottom: calc(50% - 100px);
+                left: calc(28.125% - 100px + 200px);
+            }
+
+            #settings:hover, #calibration:hover, #play:hover {
+                filter: brightness(0.9);
+                transform: scale(1.1, 1.1) rotate(1deg);
+                animation-name: buttons;
+                animation-duration: 0.2s;
+            }
+
+            @keyframes buttons {
+                from {
+                    filter: brightness(1);
+                    transform: scale(1, 1) rotate(1deg);
+                } to {
+                    filter: brightness(0.9);
+                    transform: scale(1.1, 1.1) rotate(1deg);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <canvas id="canvas"></canvas>
+        <img id="play" src="./play.svg" alt="f"></img>
+        <img id="calibration" src="./calibration.svg" alt="f"></img>
+        <img id="settings" src="./settings.svg" alt="f" onclick="console.log(3)"></img>
+
+        <script>
+            
+            canvas = document.getElementById("canvas")
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+            ctx = canvas.getContext("2d")
+
+            cx = window.innerWidth / 2
+            cy = window.innerHeight / 2
+            r = "100px"
+
+            
+        </script>
+    </body>
+</html>
